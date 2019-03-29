@@ -1,0 +1,1 @@
+{"index.js":"var myStr; // Change this line\nmyStr = \"\\nFirstLine\\n\\t\\SecondLine\\nThirdLine\";\n"}
