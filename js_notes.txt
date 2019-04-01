@@ -1,0 +1,400 @@
+last character of string
+var lastLetterOfFirstName = firstName[firstName.length - 1]
+#############################################################################
+
+append array
+var arr = [1,2,3];
+arr.push(4);
+
+#############################################################################
+
+.pop() is used to "pop" a value off of the end of an array. We can store this "popped off" value by assigning it to a variable. In other words, .pop() removes the last element from an array and returns that element.
+var threeArr = [1, 4, 6];
+var oneDown = threeArr.pop();
+
+#############################################################################
+
+ .shift() It works just like .pop(), except it removes the first element instead of the last.
+#############################################################################
+
+.unshift() works exactly like .push(), but instead of adding the element at the end of the array, unshift() adds the element at the beginning of the array.
+
+#############################################################################
+
+Variables which are used without the var keyword are automatically created in the global scope
+#############################################################################
+
+function without return statement returns undefined
+#############################################################################
+
+  switch(val){
+    case 1:
+    case 2:
+    case 3:
+      answer = "Low";
+      break;
+    case 4:
+    case 5:
+    case 6:
+      answer = "Mid";
+      break;
+    case 7:
+    case 8:
+    case 9:
+      answer = "High";
+      break;
+  }
+  
+#############################################################################
+
+We can also delete properties from objects like this:
+
+delete ourDog.bark;
+#############################################################################
+add new property
+
+ourDog.bark = "woof"
+#############################################################################
+
+Sometimes it is useful to check if the property of a given object exists or not. We can use the .hasOwnProperty(propname) method of objects to determine if that object has the given property name.
+#############################################################################
+
+Math.floor(Math.random() * (max - min + 1)) + min
+
+
+Create a function called randomRange that takes a range myMin and myMax and returns a random number that's greater than or equal to myMin, and is less than or equal to myMax, inclusive.
+#############################################################################
+
+condition ? statement-if-true : statement-if-false;
+
+function findGreater(a, b) {
+  return a > b ? "a is greater" : "b is greater";
+}
+
+#############################################################################
+function findGreaterOrEqual(a, b) {
+  if(a === b) {
+    return "a and b are equal";
+  }
+  else if(a > b) {
+    return "a is greater";
+  }
+  else {
+    return "b is greater";
+  }
+}
+The above function can be re-written using multiple conditional operators:
+
+function findGreaterOrEqual(a, b) {
+  return (a === b) ? "a and b are equal" : (a > b) ? "a is greater" : "b is greater";
+}
+#############################################################################
+
+So unlike var, when using let, a variable with the same name can only be declared once.
+
+Note the "use strict". This enables Strict Mode, which catches common coding mistakes and "unsafe" actions. For instance:
+
+"use strict";
+x = 3.14; // throws an error because x is not declared
+#############################################################################
+When you declare a variable with the var keyword, it is declared globally, or locally if declared inside a function.
+
+The let keyword behaves similarly, but with some extra features. When you declare a variable with the let keyword inside a block, statement, or expression, its scope is limited to that block, statement, or expression.
+
+
+#############################################################################
+
+, const declaration alone doesn't really protect your data from mutation. To ensure your data doesn't change, JavaScript provides a function Object.freeze to prevent data mutation.
+
+#############################################################################
+arrow functions 
+
+const myFunc = function() {
+  const myVar = "value";
+  return myVar;
+}
+ES6 provides us with the syntactic sugar to not have to write anonymous functions this way. Instead, you can use arrow function syntax:
+
+const myFunc = () => {
+  const myVar = "value";
+  return myVar;
+}
+
+When there is no function body, and only a return value, arrow function syntax allows you to omit the keyword return as well as the brackets surrounding the code. This helps simplify smaller functions into one-line statements:
+
+const myFunc = () => "value"
+#############################################################################
+function variable number of argumnets
+
+function howMany(...args) {
+#############################################################################
+unpack
+
+const arr = [6, 89, 3, 45];
+const maximus = Math.max(...arr); // returns 89
+
+#############################################################################
+
+var voxel = {x: 3.6, y: 7.4, z: 6.54 };
+var x = voxel.x; // x = 3.6
+var y = voxel.y; // y = 7.4
+var z = voxel.z; // z = 6.54
+Here's the same assignment statement with ES6 destructuring syntax:
+
+const { x, y, z } = voxel; // x = 3.6, y = 7.4, z = 6.54
+#############################################################################
+
+var a, b, rest;
+[a, b] = [10, 20];
+console.log(a); // 10
+console.log(b); // 20
+
+[a, b, ...rest] = [10, 20, 30, 40, 50];
+console.log(a); // 10
+console.log(b); // 20
+console.log(rest); // [30, 40, 50]
+
+({a, b} = {a: 10, b: 20});
+console.log(a); // 10
+console.log(b); // 20
+#############################################################################
+
+const [a, b] = [1, 2, 3, 4, 5, 6];
+console.log(a, b); // 1, 2
+The variable a is assigned the first value of the array, and b is assigned the second value of the array.
+
+We can also access the value at any index in an array with destructuring by using commas to reach the desired index:
+
+const [a, b,,, c] = [1, 2, 3, 4, 5, 6];
+console.log(a, b, c); // 1, 2, 5
+#############################################################################
+const [a, b, ...arr] = [1, 2, 3, 4, 5, 7];
+console.log(a, b); // 1, 2
+console.log(arr); // [3, 4, 5, 7]
+#############################################################################
+
+const person = {
+  name: "Zodiac Hasbro",
+  age: 56
+};
+
+// Template literal with multi-line and string interpolation
+const greeting = `Hello, my name is ${person.name}!
+I am ${person.age} years old.`;
+
+console.log(greeting); // prints
+// Hello, my name is Zodiac Hasbro!
+// I am 56 years old.
+A lot of things happened there.
+
+Firstly, the example uses backticks (`), not quotes (' or "), to wrap the string.
+
+Secondly, notice that the string is multi-line, both in the code and the output. This saves inserting \n within strings.
+#############################################################################
+
+const getMousePosition = (x, y) => ({
+  x: x,
+  y: y
+});
+getMousePosition is a simple function that returns an object containing two fields.
+
+ES6 provides the syntactic sugar to eliminate the redundancy of having to write x: x. You can simply write x once, and it will be converted tox: x (or something equivalent) under the hood.
+
+Here is the same function from above rewritten to use this new syntax:
+
+const getMousePosition = (x, y) => ({ x, y });
+#############################################################################
+
+const person = {
+  name: "Taylor",
+  sayHello: function() {
+    return `Hello! My name is ${this.name}.`;
+  }
+};
+With ES6, You can remove the function keyword and colon altogether when defining functions in objects. Here's an example of this syntax:
+
+const person = {
+  name: "Taylor",
+  sayHello() {
+    return `Hello! My name is ${this.name}.`;
+  }
+};
+#############################################################################
+
+class SpaceShuttle {
+  constructor(targetPlanet){
+    this.targetPlanet = targetPlanet;
+  }
+}
+const zeus = new SpaceShuttle('Jupiter');
+#############################################################################
+
+class Book {
+  constructor(author) {
+    this._author = author;
+  }
+  // getter
+  get writer(){
+    return this._author;
+  }
+  // setter
+  set writer(updatedAuthor){
+    this._author = updatedAuthor;
+  }
+}
+const lol = new Book('anonymous');
+console.log(lol.writer);  // anonymous
+lol.writer = 'wut';
+console.log(lol.writer);  // wut
+
+#############################################################################
+
+import { countItems } from "math_array_functions"
+
+#############################################################################
+
+const capitalizeString = (string) => {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
+export { capitalizeString } //How to export functions.
+export const foo = "bar"; //How to export variables.
+Alternatively, if you would like to compact all your export statements into one line, you can take this approach:
+
+const capitalizeString = (string) => {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
+const foo = "bar";
+export { capitalizeString, foo }
+
+#############################################################################
+
+import * as myMathModule from "math_functions";
+myMathModule.add(2,3);
+myMathModule.subtract(5,3);
+And breaking down that code:
+
+import * as object_with_name_of_your_choice from "file_path_goes_here"
+object_with_name_of_your_choice.imported_function
+
+#############################################################################
+
+export default. Usually you will use this syntax if only one value is being exported from a file. It is also used to create a fallback value for a file or module.
+
+Here is a quick example of export default:
+
+export default function add(x,y) {
+  return x + y;
+}
+
+#############################################################################
+
+n the following example, we have a function, add, that is the default export of a file, "math_functions". Here is how to import it:
+
+import add from "math_functions";
+add(5,4); //Will return 9
+The syntax differs in one key place - the imported value, add, is not surrounded by curly braces, {}. Unlike exported values, the primary method of importing a default export is to simply write the value's name after import.
+
+#############################################################################
+
+array add element
+.push() in the end of array
+.unshift() to the beggining of array
+
+delete element
+.pop() from the end
+.shift() from the beggining
+
+. splice() allows us to do just that: remove any number of consecutive elements from anywhere in an array. 
+first parameter represents the index on the array from which to begin removing elements, while the second parameter indicates the number of elements to delete. we can use third parameter to add element instead of removed elements by splice
+
+  arr.splice(0, 2, 'DarkSalmon', 'BlanchedAlmond');
+removes 2 elements from 0 position and adds 2 elements DarkSalmon', 'BlanchedAlmond' on place of removed items
+
+
+
+#############################################################################
+
+let thisArray = ['sage', 'rosemary', 'parsley', 'thyme'];
+
+let thatArray = ['basil', 'cilantro', ...thisArray, 'coriander'];
+// thatArray now equals ['basil', 'cilantro', 'sage', 'rosemary', 'parsley', 'thyme', 'coriander']
+
+#############################################################################
+
+Let's revisit our foods object example one last time. If we wanted to remove the apples key, we can remove it by using the delete keyword like this:
+
+delete foods.apples;
+
+#############################################################################
+for (let user in users) {
+  console.log(user);
+};
+
+// logs:
+Alan
+Jeff
+Sarah
+Ryan
+#############################################################################
+
+We can also generate an array which contains all the keys stored in an object using the Object.keys() method and passing in an object as the argument
+
+#############################################################################
+#############################################################################
+#############################################################################
+#############################################################################
+#############################################################################
+#############################################################################
+#############################################################################
+#############################################################################
+#############################################################################
+#############################################################################
+#############################################################################
+#############################################################################
+#############################################################################
+#############################################################################
+#############################################################################
+#############################################################################
+#############################################################################
+#############################################################################
+#############################################################################
+#############################################################################
+#############################################################################
+#############################################################################
+#############################################################################
+#############################################################################
+#############################################################################
+#############################################################################
+#############################################################################
+#############################################################################
+#############################################################################
+#############################################################################
+#############################################################################
+#############################################################################
+#############################################################################
+#############################################################################
+#############################################################################
+#############################################################################
+#############################################################################
+#############################################################################
+#############################################################################
+#############################################################################
+#############################################################################
+#############################################################################
+#############################################################################
+#############################################################################
+#############################################################################
+#############################################################################
+#############################################################################
+#############################################################################
+#############################################################################
+#############################################################################
+#############################################################################
+#############################################################################
+#############################################################################
+#############################################################################
+#############################################################################
+#############################################################################
+#############################################################################
+#############################################################################
+#############################################################################

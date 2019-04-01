@@ -1,0 +1,1 @@
+{"index.js":"// Setup\nvar a;\nvar b = 2;\na = 7;\nb = a;\n// Only change code below this line\n"}
