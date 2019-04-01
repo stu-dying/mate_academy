@@ -1,0 +1,1 @@
+{"index.js":"function getIndexToIns(arr, num) {\n  // Find my place in this sorted array.\n  \n  // Insert new number\n  let newArr = arr.push(num);\n  \n  // Sort array\n  let sortedArr = arr.sort(function(a, b){\n    return a - b;\n  });\n \n  // Get index position of new number in array\n    return sortedArr.indexOf(num);\n  \n}\n\ngetIndexToIns([40, 60], 50);"}

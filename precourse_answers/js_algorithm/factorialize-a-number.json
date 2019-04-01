@@ -1,0 +1,1 @@
+{"index.js":"function factorialize(num) {\n  let prevNum = 0;\n  let newNum = 1;\n  while (prevNum < num) {\n    prevNum++;\n    console.log('this is the prevNum' + prevNum);\n    newNum *= prevNum;\n    console.log('this is the newNum' + newNum);\n  }\n  return newNum;\n}\n\nfactorialize(5);"}
