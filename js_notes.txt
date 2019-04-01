@@ -295,10 +295,50 @@ add(5,4); //Will return 9
 The syntax differs in one key place - the imported value, add, is not surrounded by curly braces, {}. Unlike exported values, the primary method of importing a default export is to simply write the value's name after import.
 
 #############################################################################
+
+array add element
+.push() in the end of array
+.unshift() to the beggining of array
+
+delete element
+.pop() from the end
+.shift() from the beggining
+
+. splice() allows us to do just that: remove any number of consecutive elements from anywhere in an array. 
+first parameter represents the index on the array from which to begin removing elements, while the second parameter indicates the number of elements to delete. we can use third parameter to add element instead of removed elements by splice
+
+  arr.splice(0, 2, 'DarkSalmon', 'BlanchedAlmond');
+removes 2 elements from 0 position and adds 2 elements DarkSalmon', 'BlanchedAlmond' on place of removed items
+
+
+
 #############################################################################
+
+let thisArray = ['sage', 'rosemary', 'parsley', 'thyme'];
+
+let thatArray = ['basil', 'cilantro', ...thisArray, 'coriander'];
+// thatArray now equals ['basil', 'cilantro', 'sage', 'rosemary', 'parsley', 'thyme', 'coriander']
+
 #############################################################################
+
+Let's revisit our foods object example one last time. If we wanted to remove the apples key, we can remove it by using the delete keyword like this:
+
+delete foods.apples;
+
 #############################################################################
+for (let user in users) {
+  console.log(user);
+};
+
+// logs:
+Alan
+Jeff
+Sarah
+Ryan
 #############################################################################
+
+We can also generate an array which contains all the keys stored in an object using the Object.keys() method and passing in an object as the argument
+
 #############################################################################
 #############################################################################
 #############################################################################
