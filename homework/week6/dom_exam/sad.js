@@ -30,11 +30,11 @@ let art1 = new Article('art1', 'auth1', "this is art1");
 let art2 = new Article('art2', 'auth2', "this is art2");
 let art3 = new Article('art3', 'auth3', "this is art3");
 let art4 = new Article('art4', 'auth4', "this is art4");*/
-const list = new ArticleList(wrapper);
+const list = new ArticleList();
 /*list.addArticle(art1);
-list.addArticle(art2);
-list.addArticle(art3);*/
-list.removeArticle(art2);
+// list.addArticle(art2);
+// list.addArticle(art3);*/
+// list.removeArticle(art2);
 const temp = [
     {
         "title": "On Walt Whitman, Unsung Newspaperman",
@@ -97,7 +97,7 @@ const temp = [
         "text": "<p>I’ve always felt it was the job of a good novel to dig in the dirt, which may be why the best ones always seemed to me to be the ones about women who were angry, sad, or just plain bad: women made reckless by <em>ennui</em>, women who resisted all the way, who failed to fit themselves to the shape of a husband’s thumb. I can’t understand picking up a book in search of someone unobjectionable. There’s nothing enthralling in good behavior; it’s wickedness that keeps us rapt. Besides, the pretense of virtue always rings false; hence no one ever came away from reading <em>Little Women</em> dreaming of being Beth March. As Margaret Atwood says, “Create a flawless character and you create an insufferable one.”</p>"
     }
 ];
-const XMLHttpRequest = require('w3c-xmlhttprequest').XMLHttpRequest;
+/*const XMLHttpRequest = require('w3c-xmlhttprequest').XMLHttpRequest;
 const inputArticles = "http://my-json-server.typicode.com/mate-academy/literary-blog/articles";
 const requestMethod = 'GET';
 const articleLists = new XMLHttpRequest();
@@ -106,10 +106,45 @@ const articleLists = new XMLHttpRequest();
 articleLists.open(requestMethod, inputArticles, false);
 articleLists.responseType = 'json';
 articleLists.send();
-let resultList = JSON.parse(articleLists.responseText);
-resultList.forEach(elem => {
+let resultList = JSON.parse(articleLists.responseText);*/
+temp.forEach(elem => {
     elem['title'] = new Article(elem['title'],elem['author'],elem['text']);
     list.addArticle(elem['title']);
 });
 
-function render ()
+console.log(list.arrList[0].title)
+const as = document.querySelector('#article-list');
+as.innerHTML=list.arrList[0].title;
+
+list.arrList.forEach(article => {
+    let section = document.querySelector('.test')
+    let articleContainer = document.createElement("div");
+    articleContainer.className = "container";
+
+    section.appendChild(articleContainer);
+    let titleContainer = document.createElement('span');
+
+    let authorContainer = document.createElement('span');
+
+    let textContainer = document.createElement('p');
+    textContainer.className = "title";
+
+    articleContainer.appendChild(titleContainer);
+    articleContainer.appendChild(authorContainer);
+    articleContainer.appendChild(textContainer);
+    titleContainer.innerHTML = article.title;
+    titleContainer.className = "title";
+
+    authorContainer.innerText = article.author;
+    authorContainer.className = "author";
+
+    textContainer.innerHTML = article.text;
+    textContainer.className = "text";
+
+
+
+    /*    as.innerHTML = article.title;
+        as.innerHTML = article.author;*/
+
+})
+

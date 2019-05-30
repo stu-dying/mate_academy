@@ -1,0 +1,19 @@
+.body {margin: 10px}
+
+.title {
+    font-size: larger;
+    font-weight: bold;
+    margin: 0 5px;
+
+}
+
+.author {
+    font-size: smaller;
+    background-color: lightblue;
+    margin: 0 10px;
+
+}
+
+.container {
+    margin: 5px 10px 0;
+}
